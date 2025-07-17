@@ -18,7 +18,11 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let userChoice = prompt("Type 'rock', 'paper', or 'scissors' into the prompt to play.");
-    return userChoice.toLowerCase();
+    if (userChoice || userChoice === "") {
+        return userChoice.toLowerCase();
+    } else {
+        return null;
+    }
 }
 
 function playGame() {
@@ -70,6 +74,10 @@ function playGame() {
     console.log("Five rounds of rock, paper, scissors begins now...");
     for (let i = 0; i < 5; i++) {
         const humanChoice = getHumanChoice();
+        if (humanChoice === null) {
+            console.log("Game cancelled by user");
+            break;
+        }
         const computerChoice = getComputerChoice();
         
         console.log("You picked: " + humanChoice);
