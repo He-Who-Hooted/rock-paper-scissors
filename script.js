@@ -1,5 +1,3 @@
-game();
-
 function game() {
     console.log("Hello World");
     playGame();
